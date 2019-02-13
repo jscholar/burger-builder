@@ -1,0 +1,28 @@
+.BuildControl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    width: 200px;
+}
+
+.BuildControl i {
+    display: block;
+    padding: 5px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: rgb(255, 228, 187);
+    background-color: rgb(190, 132, 43);
+    border-radius: 50%;
+}
+
+.BuildControl i:hover {
+    color: white;
+}
+
+.BuildControl .Label {
+    width: 100px;
+    font-weight: 700;
+}
