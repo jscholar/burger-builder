@@ -11,6 +11,7 @@ const controls = [
 ]
 
 const buildControls = (props) => {
+
     return (
         <div className={classes.BuildControls}>
             {controls.map((ctrl) => {
@@ -29,6 +30,11 @@ const buildControls = (props) => {
                     />
                 )
             })}
+            <button className={classes.OrderBtn +
+             (!props.purchasable ? ' ' + classes.Disabled : '')}>
+                Add to Orders
+             </button>
+            <button className={classes.OrderBtn + ' ' + classes.Disabled}>Add to Orders</button>
         </div>
     )
 };
