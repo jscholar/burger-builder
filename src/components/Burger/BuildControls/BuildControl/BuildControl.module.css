@@ -26,3 +26,8 @@
     width: 100px;
     font-weight: 700;
 }
+
+.BuildControl i.Disabled {
+    color: rgba(255, 226, 182, 0.507);
+    cursor: inherit;
+}
