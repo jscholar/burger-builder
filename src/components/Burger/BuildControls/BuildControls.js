@@ -34,7 +34,6 @@ const buildControls = (props) => {
              (!props.purchasable ? ' ' + classes.Disabled : '')}>
                 Add to Orders
              </button>
-            <button className={classes.OrderBtn + ' ' + classes.Disabled}>Add to Orders</button>
         </div>
     )
 };
