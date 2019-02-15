@@ -1,4 +1,5 @@
 .BuildControls {
+    min-width: 250px;
     width: 100%;
     background-color: rgb(240, 144, 0);
     display: flex;
