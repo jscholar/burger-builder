@@ -1,4 +1,5 @@
 .Burger {
+    min-width: 250px;
     width: 100%;
     margin: auto;
     height: 400px;

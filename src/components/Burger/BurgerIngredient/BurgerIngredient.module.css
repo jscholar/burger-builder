@@ -119,7 +119,7 @@
     border-radius: 40%;
     right: 10%;
     top: 40%;
-    transform: rotate(-85deg)
+    transform: rotate(10deg)
 }
 
 .Seeds2:after {
@@ -130,7 +130,7 @@
     background-color: rgb(252, 209, 160);
     box-shadow: inset -2px -3px #b88f73;
     border-radius: 40%;
-    bottom: 450%;
-    right: 30%;
-    transform: rotate(30deg);
+    bottom: -100%;
+    right: 150%;
+    transform: rotate(-60deg);
 }
