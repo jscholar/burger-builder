@@ -9,7 +9,7 @@ const modal = (props) => (
     <Aux>
         <Backdrop 
             show={props.show}
-            hide={props.hideModal}
+            clickHandler={props.hideModal}
         />
         <div 
             className={classes.Modal}
