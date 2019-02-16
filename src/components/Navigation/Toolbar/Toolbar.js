@@ -7,9 +7,11 @@ import classes from './Toolbar.module.css'
 
 const toolbar = (props) => (
     <header className={classes.Toolbar}>
-        <div>MENU</div>
-        <Logo />
-        <nav>
+        <div className={classes.ToolbarElement}>MENU</div>
+        <div className={classes.Logo}>
+            <Logo />
+        </div>
+        <nav className={[classes.ToolbarElement, classes.DesktopOnly].join(' ')}>
             <NavigationItems />
         </nav>
     </header>
