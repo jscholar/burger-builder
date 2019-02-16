@@ -30,8 +30,10 @@ const buildControls = (props) => {
                     />
                 )
             })}
-            <button className={classes.OrderBtn +
-             (!props.purchasable ? ' ' + classes.Disabled : '')}>
+            <button 
+                className={classes.OrderBtn + (!props.purchasable ? ' ' + classes.Disabled : '')}
+                onClick={props.purchasable ? props.purchaseHandler : null}
+            >
                 Add to Orders
              </button>
         </div>
