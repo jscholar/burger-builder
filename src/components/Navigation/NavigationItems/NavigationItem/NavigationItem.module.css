@@ -1,5 +1,5 @@
 .NavigationItem {
-    margin: 10px 0;
+    margin: 5px 0;
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -32,6 +32,9 @@
     }
     
     .NavigationItem a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: white;
         height: 100%;
         border-bottom: 4px solid transparent;

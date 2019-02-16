@@ -1,0 +1,18 @@
+.Burger {
+    height: 100%;
+    width: fit-content;
+    margin: 2px 0;
+    cursor: pointer;
+}
+
+.Burger i {
+    height: 100%;
+    font-size: 40px;
+    color: #FFFFFF;
+    align-items: center;
+    display: flex;
+}
+
+.Burger i:hover {
+    color: rgba(255, 255, 255, 0.925);
+}
