@@ -28,12 +28,6 @@ class Layout extends React.Component {
     render() {
         return (
             <Aux>
-                <div>
-                    TODO: 
-                    Toolbar,
-                    SideDrawer,
-                    Backdrop
-                </div>
                 <SideDrawer 
                     display={this.state.displaySideDrawer}
                     toggle={this.toggleSideDrawerHandler}

@@ -1,10 +1,11 @@
 import React from 'react';
 
-import Burger from './../../components/Burger/Burger'
-import BuildControls from './../../components/Burger/BuildControls/BuildControls'
-import Modal from './../../components/UI/Modal/Modal'
-import OrderSummary from './../../components/Burger/OrderSummary/OrderSummary'
+import Burger from './../../components/Burger/Burger';
+import BuildControls from './../../components/Burger/BuildControls/BuildControls';
+import Modal from './../../components/UI/Modal/Modal';
+import OrderSummary from './../../components/Burger/OrderSummary/OrderSummary';
 import axios from './../../axios-orders';
+import withErrorHandler from './../../hoc/withErrorHandler/withErrorHandler';
 
 import Spinner from './../../components/UI/Spinner/Spinner'
 import Aux from '../../hoc/Auxiliary/Auxiliary'
@@ -112,12 +113,8 @@ class BurgerBuilder extends React.Component {
 
         axios.post('/orders.json', order)
             .then(response => {
-                this.setState({loading: false, purchased: true});
+                this.setState({loading: false, purchased: !response.error});
             })
-            .catch(error => {
-                console.log(error)
-               // this.setState({loading: false, purchasing: false})
-            });
     }
 
     render() {
@@ -145,7 +142,7 @@ class BurgerBuilder extends React.Component {
 
         return (
             <Aux>
-                <Modal show={this.state.purchasing} hideModal={this.exitPurchasingHandler}>
+                <Modal show={this.state.purchasing && !this.props.error} hideModal={this.exitPurchasingHandler}>
                     {orderSummary}
                 </Modal> 
                 <Burger ingredients={this.state.ingredients}/>
@@ -162,4 +159,4 @@ class BurgerBuilder extends React.Component {
     }
 }
 
-export default BurgerBuilder;
+export default withErrorHandler(BurgerBuilder, axios);

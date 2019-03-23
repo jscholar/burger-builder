@@ -5,7 +5,7 @@ import Backdrop from './../Backdrop/Backdrop'
 
 import classes from './Modal.module.css'
 
-class modal extends React.Component {
+class Modal extends React.Component {
     shouldComponentUpdate(nextProps, nextState) {
         return (nextProps.show !== this.props.show || nextProps.show)
     }
@@ -31,4 +31,4 @@ class modal extends React.Component {
     }
 };
 
-export default modal;
+export default Modal;
