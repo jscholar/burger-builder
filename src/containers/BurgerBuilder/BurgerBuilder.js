@@ -4,8 +4,6 @@ import Burger from './../../components/Burger/Burger';
 import BuildControls from './../../components/Burger/BuildControls/BuildControls';
 import Modal from './../../components/UI/Modal/Modal';
 import OrderSummary from './../../components/Burger/OrderSummary/OrderSummary';
-import axios from './../../axios-orders';
-import withErrorHandler from './../../hoc/withErrorHandler/withErrorHandler';
 
 import Spinner from './../../components/UI/Spinner/Spinner'
 import Aux from '../../hoc/Auxiliary/Auxiliary'
@@ -94,26 +92,12 @@ class BurgerBuilder extends React.Component {
         this.setState({
             loading: true
         });
-        // dummy order
-        // const order = {
-        //     ingredients: this.state.ingredients,
-        //     price: this.state.totalPrice,
-        //     customer: {
-        //         name: 'Kobe Bryant',
-        //         address: {
-        //             street: 'Tinsletown',
-        //             zipCode: '77777',
-        //             country: 'USA'
-        //         },
-        //         email: 'KB24@gmail.com'
-        //     },
-        //     deliveryMethod: 'chopper'
-        // }
 
         const queryParams = [];
         for (let i in this.state.ingredients) {
             queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]))
         }
+        queryParams.push('price=' + this.state.totalPrice);
         const queryString = queryParams.join('&');
 
         this.props.history.push({
@@ -121,11 +105,6 @@ class BurgerBuilder extends React.Component {
             search: '?' + queryString
 
         })
-
-        // axios.post('/orders.json', order)
-        //     .then(response => {
-        //         this.setState({loading: false, purchased: !response.error});
-        //     })
     }
 
     render() {
@@ -170,4 +149,4 @@ class BurgerBuilder extends React.Component {
     }
 }
 
-export default withErrorHandler(BurgerBuilder, axios);
+export default BurgerBuilder;
