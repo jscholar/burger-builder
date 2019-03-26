@@ -78,7 +78,6 @@ class BurgerBuilder extends React.Component {
     }
 
     purchaseHandler = () => {
-        console.log('purchaseHandler called');
         this.setState({
             purchasing: true
         })
@@ -96,25 +95,37 @@ class BurgerBuilder extends React.Component {
             loading: true
         });
         // dummy order
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Kobe Bryant',
-                address: {
-                    street: 'Tinsletown',
-                    zipCode: '77777',
-                    country: 'USA'
-                },
-                email: 'KB24@gmail.com'
-            },
-            deliveryMethod: 'chopper'
-        }
+        // const order = {
+        //     ingredients: this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     customer: {
+        //         name: 'Kobe Bryant',
+        //         address: {
+        //             street: 'Tinsletown',
+        //             zipCode: '77777',
+        //             country: 'USA'
+        //         },
+        //         email: 'KB24@gmail.com'
+        //     },
+        //     deliveryMethod: 'chopper'
+        // }
 
-        axios.post('/orders.json', order)
-            .then(response => {
-                this.setState({loading: false, purchased: !response.error});
-            })
+        const queryParams = [];
+        for (let i in this.state.ingredients) {
+            queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]))
+        }
+        const queryString = queryParams.join('&');
+
+        this.props.history.push({
+            pathname: '/checkout',
+            search: '?' + queryString
+
+        })
+
+        // axios.post('/orders.json', order)
+        //     .then(response => {
+        //         this.setState({loading: false, purchased: !response.error});
+        //     })
     }
 
     render() {
