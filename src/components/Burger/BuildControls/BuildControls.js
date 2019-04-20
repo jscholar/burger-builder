@@ -14,6 +14,7 @@ const buildControls = (props) => {
 
     return (
         <div className={classes.BuildControls}>
+            <p>Total Price: {props.price.toFixed(2)}</p>
             {controls.map((ctrl) => {
                 const disabledControl = props.disabledInfo[ctrl.type];
                 return (
